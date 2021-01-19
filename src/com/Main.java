@@ -25,11 +25,12 @@ public class Main {
 //		Author a1 = new Author();
 //		a1.setName("David");
 //		a1.setEmail("david@gmail.com");
-//
+//		long id = (long) session.save(a1);
 //		System.out.println(session.save(a1));
 
-		Author a1 = (Author) session.load(Author.class, 6L);
+		Author a1 = (Author) session.load(Author.class, 2L);
 		System.out.println(a1);
+
 		session.getTransaction().commit();
 		session.close();
 
