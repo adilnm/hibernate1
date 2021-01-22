@@ -1,17 +1,18 @@
 package com;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity // table created will be classname
-//@Table(name = "AUTHOR")
+@Table(name = "AUTHOR")
 public class Author {
 	private long id;
 	private String name;
 	private String email;
 
-	//
 	public Author() {
 	}
 
@@ -21,8 +22,7 @@ public class Author {
 	}
 
 	@Id
-	// @Column(name = "AUTHOR_ID")//the column name created for primary key is now
-	// AUTHOR-ID(not id)
+	@Column(name = "AUTHOR_ID") // the column name created for primary key is now AUTHOR-ID(not id)
 	@GeneratedValue
 	public long getId() {
 		return id;

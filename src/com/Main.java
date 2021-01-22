@@ -1,6 +1,7 @@
 package com;
 
-import org.hibernate.Query;
+import java.util.Date;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -26,6 +27,7 @@ public class Main {
 //		Author a1 = new Author();
 //		a1.setName("David");
 //		a1.setEmail("david@gmail.com");
+//		Author author2 = new Author("James", "james@gmail.com");
 //		long id = (long) session.save(a1);
 //		System.out.println(session.save(a1));
 
@@ -68,12 +70,16 @@ public class Main {
 
 		// update
 
-		String hql = "update Author set email = :email where id = :id";
-		Query query = session.createQuery(hql);
-		query.setParameter("email", "j@gmail.com");
-		query.setParameter("id", 5L);
+//		String hql = "update Author set email = :email where id = :id";
+//		Query query = session.createQuery(hql);
+//		query.setParameter("email", "j@gmail.com");
+//		query.setParameter("id", 5L);
+//
+//		query.executeUpdate();
 
-		query.executeUpdate();
+		Author author2 = new Author("James", "james@gmail.com");
+		Book book2 = new Book("hibernate", "excellent", new Date(), author2);
+		session.save(book2);
 
 		session.getTransaction().commit();
 		session.close();
